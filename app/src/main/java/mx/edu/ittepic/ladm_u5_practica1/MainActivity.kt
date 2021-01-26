@@ -70,7 +70,6 @@ class MainActivity : AppCompatActivity() {
                         textView.setText("ERROR: ${firebaseFirestoreException.message}")
                         return@addSnapshotListener
                     }
-                    var resultado = ""
                     posicion.clear()
                     listaUbicaciones.clear()
                     for (document in querySnapshot!!) {
@@ -78,7 +77,6 @@ class MainActivity : AppCompatActivity() {
                         data.nombre = document.getString("nombre").toString()
                         data.punto1 = document.getGeoPoint("punto1")!!
                         data.punto2 = document.getGeoPoint("punto2")!!
-                        resultado += data.toString() + "\n\n"
                         listaUbicaciones.add(data.toString())
                         posicion.add(data)
                     }
